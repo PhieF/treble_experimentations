@@ -114,6 +114,13 @@ function get_rom_type() {
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
                 ;;
+	    e-pie-v1)
+                mainrepo="https://gitlab.e.foundation/e/os/android/"
+                mainbranch="pie-v1"
+                localManifestBranch="android-9.0"
+                treble_generate="lineage"
+                extra_make_options="WITHOUT_CHECK_API=true"
+                ;;
             lineage151)
                 mainrepo="https://github.com/LineageOS/android.git"
                 mainbranch="lineage-15.1"
