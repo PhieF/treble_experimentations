@@ -116,7 +116,7 @@ function get_rom_type() {
                 ;;
 	    e-pie-v1)
                 mainrepo="https://gitlab.e.foundation/e/os/android/"
-                mainbranch="pie-v1"
+                mainbranch="v1-pie"
                 localManifestBranch="android-9.0"
                 treble_generate="lineage"
                 extra_make_options="WITHOUT_CHECK_API=true"
