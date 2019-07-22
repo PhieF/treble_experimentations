@@ -338,6 +338,18 @@ function sync_repo() {
 
 function patch_things() {
     if [[ -n "$treble_generate" ]]; then
+	if [ "$treble_generate" == "lineage" ]; then
+            cd device/phh/treble
+            git revert 82b15278bad816632dcaeaed623b569978e9840d -n
+            git revert df25576594f684ed35610b7cc1db2b72bc1fc4d6 -n
+            cd ../../../build/make
+            git revert b9acd8b4f49d710b4dae2c73ac8e919589f76d44 -n
+            cd ../../external/tinycompress
+            git revert fbe2bd5c3d670234c3c92f875986acc148e6d792 -n
+            cd ../../vendor/qcom/opensource/cryptfs_hw
+            git revert 6a3fc11bcc95d1abebb60e5d714adf75ece83102 -n  
+            cd ../../../../../..
+	fi
         rm -f device/*/sepolicy/common/private/genfs_contexts
         (
             cd device/phh/treble
