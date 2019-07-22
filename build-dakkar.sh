@@ -286,16 +286,24 @@ function init_main_repo() {
 function clone_or_checkout() {
     local dir="$1"
     local repo="$2"
+    local git="$3"
+    local branch="$4"
 
+    if [ "$git" == "" ];then
+	git="https://github.com/phhusson"
+    fi
+    if [ "$branch" == "" ];then
+	branch="$localManifestBranch"
+    fi
     if [[ -d "$dir" ]];then
         (
             cd "$dir"
             git fetch
             git reset --hard
-            git checkout origin/"$localManifestBranch"
+            git checkout origin/"$branch"
         )
     else
-        git clone https://github.com/phhusson/"$repo" "$dir" -b "$localManifestBranch"
+        git clone "$git"/"$repo" "$dir" -b "$branch"
     fi
 }
 
@@ -305,7 +313,7 @@ function init_local_manifest() {
 
 function init_patches() {
     if [[ -n "$treble_generate" ]]; then
-        clone_or_checkout patches treble_patches
+        clone_or_checkout patches treble_patches "https://github.com/PhieF" "lineage-16"
 
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
