@@ -346,7 +346,7 @@ function patch_things() {
             git revert fbe2bd5c3d670234c3c92f875986acc148e6d792 -n
             cd ../../vendor/qcom/opensource/cryptfs_hw
             git revert 6a3fc11bcc95d1abebb60e5d714adf75ece83102 -n  
-            cd ../../../../../..
+            cd ../../../..
 	fi
         rm -f device/*/sepolicy/common/private/genfs_contexts
         (
