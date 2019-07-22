@@ -342,7 +342,7 @@ function patch_things() {
             cd device/phh/treble
             git revert 82b15278bad816632dcaeaed623b569978e9840d -n
             git revert df25576594f684ed35610b7cc1db2b72bc1fc4d6 -n
-            cd ../../external/tinycompress
+            cd ../../../external/tinycompress
             git revert fbe2bd5c3d670234c3c92f875986acc148e6d792 -n
             cd ../../vendor/qcom/opensource/cryptfs_hw
             git revert 6a3fc11bcc95d1abebb60e5d714adf75ece83102 -n  
