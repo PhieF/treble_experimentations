@@ -313,8 +313,11 @@ function init_local_manifest() {
 
 function init_patches() {
     if [[ -n "$treble_generate" ]]; then
-        clone_or_checkout patches treble_patches "https://github.com/PhieF" "lineage-16"
-
+	if [ "$treble_generate" == "lineage" ]; then
+        	clone_or_checkout patches treble_patches "https://github.com/PhieF" "lineage-16"
+	else
+		clone_or_checkout patches treble_patches	
+	fi
         # We don't want to replace from AOSP since we'll be applying
         # patches by hand
         rm -f .repo/local_manifests/replace.xml
